@@ -3,13 +3,8 @@
     /// <summary>
     /// Параметры парсера
     /// </summary>
-    public class ParserSettingsEntity
+    public class ParserSettingsEntity : Entity
     {
-        /// <summary>
-        /// Id
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Id типа ресурса
         /// </summary>

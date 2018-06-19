@@ -5,17 +5,12 @@ namespace Rocket.DAL.Common.DbModels.Notification
     /// <summary>
     /// Описывает модель хранения данных о сообщении произвольного содержания
     /// </summary>
-    public class DbCustomMessage
+    public class DbCustomMessage : Entity
     {
-        /// <summary>
-        /// Возвращает или задает идентификационный номер сообщения
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Возвращает или задает получателя сообщения
         /// </summary>
-        public DbReceiver Receiver { get; set; }
+        public virtual DbReceiver Receiver { get; set; }
 
         /// <summary>
         /// Возвращает или задает идентификационный номер получателя сообщения
@@ -47,10 +42,5 @@ namespace Rocket.DAL.Common.DbModels.Notification
         /// push нотификации
         /// </summary>
         public bool Viewed { get; set; }
-
-        /// <summary>
-        /// Возвращает или задает время создания сообщения
-        /// </summary>
-        public DateTime CreationTime { get; set; }
     }
 }

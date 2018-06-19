@@ -12,15 +12,15 @@ namespace Rocket.BL.Common.Services.User
         /// <summary>
         /// Получает статус аккаунта пользователя с определенным идентификатором.
         /// </summary>
-        /// <param name="id">Идентификатор пользователя.</param>
+        /// <param name="userId">Идентификатор пользователя.</param>
         /// <returns>Статус аккаунта пользователя.</returns>
-        AccountStatus GetUserAccountStatus(int id);
+        AccountStatus GetUserAccountStatus(int userId);
 
         /// <summary>
         /// Задает статус аккаунта пользователя с определенным идентификатором.
         /// </summary>
-        /// <param name="id">Идентификатор пользователя.</param>
+        /// <param name="userId">Идентификатор пользователя.</param>
         /// <param name="accountStatus">Статус аккаунта пользователя.</param>
-        void SetUserAccountStatus(int id, AccountStatus accountStatus);
+        void SetUserAccountStatus(int userId, AccountStatus accountStatus);
     }
 }

@@ -2,13 +2,8 @@
 
 namespace Rocket.BL.Common.Models.PersonalArea
 {
-    public class UserProfile
+    public class UserProfile : BllEntity
     {
-        /// <summary>
-        /// Id пользователя.
-        /// </summary>
-        public string Id { get; set; }
-
         /// <summary>
         /// Имя пользователя.
         /// </summary>
@@ -27,16 +22,16 @@ namespace Rocket.BL.Common.Models.PersonalArea
         /// <summary>
         /// Коллекция e-mail адресов пользователя.
         /// </summary>
-        public ICollection<Email> Emails { get; set; }
+        public virtual ICollection<Email> Emails { get; set; }
 
         /// <summary>
         /// Персональный список релизов в виде списка жанров TV. 
         /// </summary>
-        public ICollection<Genre> Genres { get; set; }
+        public virtual ICollection<Genre> Genres { get; set; }
 
         /// <summary>
         /// Персональный список релизов в виде списка музыкальных жанров. 
         /// </summary>
-        public ICollection<MusicGenre> MusicGenre { get; set; }
+        public virtual ICollection<MusicGenre> MusicGenre { get; set; }
     }
 }

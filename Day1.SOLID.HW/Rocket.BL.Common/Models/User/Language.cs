@@ -3,13 +3,8 @@
     /// <summary>
     /// Представляет сведения о языке.
     /// </summary>
-    public class Language
+    public class Language : BllEntity
     {
-        /// <summary>
-        /// Задает или возвращает уникальный идентификатор языка пользователя.
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Задает или возвращает название языка пользователя.
         /// </summary>

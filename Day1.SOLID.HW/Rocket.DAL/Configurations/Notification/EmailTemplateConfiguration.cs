@@ -21,6 +21,8 @@ namespace Rocket.DAL.Configurations.Notification
             Property(x => x.Body)
                 .IsRequired()
                 .HasColumnType("nvarchar(MAX)");
+
+            Property(x => x.CreationDate).IsRequired();
         }
     }
 }

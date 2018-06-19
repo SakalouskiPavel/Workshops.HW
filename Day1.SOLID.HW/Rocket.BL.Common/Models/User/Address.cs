@@ -5,13 +5,8 @@ namespace Rocket.BL.Common.Models.User
     /// <summary>
     /// Тип адреса. Классика.
     /// </summary>
-    public class Address
+    public class Address : BllEntity
     {
-        /// <summary>
-        /// Задает или возвращает уникальный идентификационный номер адреса.
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Задает или возвращает почтовый индекс.
         /// </summary>
@@ -20,7 +15,7 @@ namespace Rocket.BL.Common.Models.User
         /// <summary>
         /// Возвращает или задает страну.
         /// </summary>
-        public Country Country { get; set; }
+        public virtual Country Country { get; set; }
 
         /// <summary>
         /// Возвращает или задает город.

@@ -18,11 +18,11 @@ namespace Rocket.DAL.Common.DbModels.ReleaseList
         /// Возвращает или задает коллекцию музыкальных релизов,
         /// которые относятся к этому жанру
         /// </summary>
-        public ICollection<DbMusic> DbMusics { get; set; }
+        public virtual ICollection<DbMusic> DbMusics { get; set; }
 
         /// <summary>
         /// Возвращает или задает коллекцию пользователей, подписанных на этот жанр
         /// </summary>
-        public ICollection<DbUserProfile> DbAuthorisedUsers { get; set; }
+        public virtual ICollection<DbUserProfile> DbAuthorisedUsers { get; set; }
     }
 }

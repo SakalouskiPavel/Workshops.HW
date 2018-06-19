@@ -6,6 +6,7 @@ namespace Rocket.BL.Services
     public abstract class BaseService : IDisposable
     {
         protected IUnitOfWork _unitOfWork;
+
         private bool _disposedValue;
 
         /// <summary>

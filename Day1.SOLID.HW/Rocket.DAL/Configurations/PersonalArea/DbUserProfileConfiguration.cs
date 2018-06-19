@@ -8,7 +8,7 @@ namespace Rocket.DAL.Configurations.PersonalArea
         public DbUserProfileConfiguration()
         {
             ToTable("UserProfile")
-                .HasKey(p => p.DbUser_Id)
+                .HasKey(p => p.DbUserId)
                 .HasRequired(p => p.DbUser)
                 .WithRequiredDependent(d => d.DbUserProfile);
 

@@ -9,7 +9,7 @@
         /// <summary>
         /// Возвращает или задает получателя сообщения
         /// </summary>
-        public Receiver Receiver { get; set; }  
+        public virtual Receiver Receiver { get; set; }  
 
         /// <summary>
         /// Возвращает или задает ссылку для завершения регистрации

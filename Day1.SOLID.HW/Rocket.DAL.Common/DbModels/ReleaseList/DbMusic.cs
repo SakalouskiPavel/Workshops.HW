@@ -10,10 +10,6 @@ namespace Rocket.DAL.Common.DbModels.ReleaseList
     /// </summary>
     public class DbMusic : SubscribableEntity
     {
-        private ICollection<DbMusician> _dbMusicians;
-        private ICollection<DbMusicGenre> _dbMusicGenres;
-        private ICollection<DbMusicTrack> _dbMusicTracks;
-
         /// <summary>
         /// Возвращает или задает название музыкального релиза
         /// </summary>
@@ -43,29 +39,17 @@ namespace Rocket.DAL.Common.DbModels.ReleaseList
         /// <summary>
         /// Возвращает или задает коллекцию жанров, к которым относится музыкальный релиз
         /// </summary>
-        public ICollection<DbMusicGenre> Genres
-        {
-            get => _dbMusicGenres ?? (_dbMusicGenres = new List<DbMusicGenre>());
-            set => _dbMusicGenres = value;
-        }
+        public virtual ICollection<DbMusicGenre> Genres { get; set; }
 
         /// <summary>
         /// Возвращает или задает музыкальные треки которые относятся к релизу
         /// </summary>
-        public ICollection<DbMusicTrack> MusicTracks
-        {
-            get => _dbMusicTracks ?? (_dbMusicTracks = new List<DbMusicTrack>());
-            set => _dbMusicTracks = value;
-        }
+        public virtual ICollection<DbMusicTrack> MusicTracks { get; set; }
 
         /// <summary>
         /// Возвращает или задает исполнителей музыкального релиза
         /// </summary>
-        public ICollection<DbMusician> Musicians
-        {
-            get => _dbMusicians ?? (_dbMusicians = new List<DbMusician>());
-            set => _dbMusicians = value;
-        }
+        public virtual ICollection<DbMusician> Musicians { get; set; }
 
         /// <summary>
         /// Исполнитель
@@ -80,6 +64,6 @@ namespace Rocket.DAL.Common.DbModels.ReleaseList
         /// <summary>
         /// Источники релиза
         /// </summary>
-        public ICollection<ResourceItemEntity> ResourceItems { get; set; }
+        public virtual ICollection<ResourceItemEntity> ResourceItems { get; set; }
     }
 }

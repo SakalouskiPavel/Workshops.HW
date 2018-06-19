@@ -4,13 +4,8 @@
     /// Представляет пол пользователя.
     /// (Mr, Miss, Ms).
     /// </summary>
-    public class Gender
+    public class Gender : BllEntity
     {
-        /// <summary>
-        /// Возвращает или задает уникальный идентификатор пола пользователя.
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Возвращает или задает пол пользователя.
         /// </summary>

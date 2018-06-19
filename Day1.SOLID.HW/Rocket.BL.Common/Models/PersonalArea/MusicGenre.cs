@@ -1,12 +1,7 @@
 ﻿namespace Rocket.BL.Common.Models.PersonalArea
 {
-    public class MusicGenre
+    public class MusicGenre : BllEntity
     {
-        /// <summary>
-        /// Id музыкального жанра.
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Имя музыкального жанра.
         /// </summary>

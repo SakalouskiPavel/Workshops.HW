@@ -8,8 +8,6 @@ namespace Rocket.Web.App_Handler
     public class ApplicationErrorHandler
     {
         private readonly ILog _logger;
-        //private readonly static string Error404 = File.ReadAllText(HostingEnvironment.MapPath("~/ Error404.html"));
-        //private readonly static string Error500 = File.ReadAllText(HostingEnvironment.MapPath("~/ Error500.html"));
 
         public ApplicationErrorHandler(ILog logger)
         {

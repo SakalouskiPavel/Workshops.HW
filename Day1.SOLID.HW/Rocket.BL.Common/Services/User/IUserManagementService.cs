@@ -31,9 +31,9 @@ namespace Rocket.BL.Common.Services.User
         /// Возвращает пользователя с заданным идентификатором
         /// из хранилища данных.
         /// </summary>
-        /// <param name="id">Идентификатор пользователя.</param>
+        /// <param name="userId">Идентификатор пользователя.</param>
         /// <returns>Экземпляр пользователя.</returns>
-        Task<Models.User.User> GetUser(string id);
+        Task<Models.User.User> GetUser(string userId);
 
         /// <summary>
         /// Добавляет заданного пользователя в хранилище данных
@@ -54,9 +54,9 @@ namespace Rocket.BL.Common.Services.User
         /// Удаляет пользователя с заданным идентификатором
         /// из хранилища данных.
         /// </summary>
-        /// <param name="id">Идентификатор пользователя.</param>
+        /// <param name="userId">Идентификатор пользователя.</param>
         /// <returns> Task </returns>
-        Task DeleteUser(string id);
+        Task DeleteUser(string userId);
 
         /// <summary>
         /// После добавление пользователя в репозитарий 

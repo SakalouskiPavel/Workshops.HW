@@ -2,13 +2,8 @@ using System.Collections.Generic;
 
 namespace Rocket.BL.Common.Models.UserRoles
 {
-    public class Permission
+    public class Permission : BllEntity
     {
-        /// <summary>
-        /// uniq identificator of permission
-        /// </summary>
-        public int PermissionId { get; set; }
-
         /// <summary>
         /// description of permission
         /// </summary>

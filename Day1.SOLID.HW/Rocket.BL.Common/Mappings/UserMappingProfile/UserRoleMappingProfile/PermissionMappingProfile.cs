@@ -9,7 +9,7 @@ namespace Rocket.BL.Common.Mappings.UserMappingProfile.UserRoleMappingProfile
         public PermissionMappingProfile()
         {
             CreateMap<Permission, DbPermission>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.PermissionId))
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
                 .ForMember(dest => dest.ValueName, opt => opt.MapFrom(src => src.ValueName))
                 .ReverseMap();

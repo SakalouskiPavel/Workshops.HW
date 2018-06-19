@@ -10,7 +10,7 @@ namespace Rocket.BL.Services.ReleaseList
         public SubscriptionService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
         }
-
+        
         public void Subscribe(string userId, int id)
         {
             var user = _unitOfWork.UserRepository.Get(f => f.Id == userId, includeProperties: $"{nameof(DbUser.Subscriptions)}")

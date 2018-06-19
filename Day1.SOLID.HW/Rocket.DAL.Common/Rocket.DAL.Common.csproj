@@ -58,14 +58,15 @@
     <Compile Include="DbModels\DbPersonalArea\DbEmail.cs" />
     <Compile Include="DbModels\DbPersonalArea\DbUserProfile.cs" />
     <Compile Include="DbModels\DbUserPayment\DbUserPayment.cs" />
+    <Compile Include="DbModels\Entity.cs" />
     <Compile Include="DbModels\Identity\DbUserClaim.cs" />
     <Compile Include="DbModels\Identity\DbUserLogin.cs" />
     <Compile Include="DbModels\Identity\DbUserRole.cs" />
+    <Compile Include="DbModels\NamedEntity.cs" />
     <Compile Include="DbModels\Notification\DbCustomMessage.cs" />
     <Compile Include="DbModels\Notification\DbEmailTemplate.cs" />
     <Compile Include="DbModels\Notification\DbGuestBillingMessage.cs" />
     <Compile Include="DbModels\Notification\DbReceiver.cs" />
-    <Compile Include="DbModels\Notification\DbReceiversJoinReleases.cs" />
     <Compile Include="DbModels\Notification\DbReleaseMessage.cs" />
     <Compile Include="DbModels\Notification\NotificationsLogEntity.cs" />
     <Compile Include="DbModels\Notification\NotificationsSettingsEntity.cs" />

@@ -6,13 +6,8 @@ namespace Rocket.DAL.Common.DbModels.Parser
     /// <summary>
     /// Элемент ресурса
     /// </summary>
-    public class ResourceItemEntity
+    public class ResourceItemEntity : Entity
     {
-        /// <summary>
-        /// Id
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Id типа ресурса
         /// </summary>

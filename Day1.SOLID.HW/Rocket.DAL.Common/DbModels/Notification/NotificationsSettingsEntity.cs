@@ -3,13 +3,8 @@
     /// <summary>
     /// Содержит настроки для работы сервиса уведомлений
     /// </summary>
-    public class NotificationsSettingsEntity
+    public class NotificationsSettingsEntity : Entity
     {
-        /// <summary>
-        /// Id сервиса
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Название сервиса
         /// </summary>

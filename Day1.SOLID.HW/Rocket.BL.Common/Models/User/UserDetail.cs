@@ -7,13 +7,8 @@ namespace Rocket.BL.Common.Models.User
     /// <summary>
     /// Детальная информация о пользователе.
     /// </summary>
-    public class UserDetail
+    public class UserDetail : BllEntity
     {
-        /// <summary>
-        /// Уникальный идентификатор дополнительной информации пользователя.
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Возвращает или задает необходимость подтверждения регистрации
         /// путем активации Email.
@@ -23,12 +18,12 @@ namespace Rocket.BL.Common.Models.User
         /// <summary>
         /// Задает или возвращает гражданство пользователя.
         /// </summary>
-        public Country Sitizenship { get; set; }
+        public virtual Country Sitizenship { get; set; }
 
         /// <summary>
         /// Задает или возвращает язык пользователя.
         /// </summary>
-        public Language Language { get; set; }
+        public virtual Language Language { get; set; }
 
         /// <summary>
         /// Задает или возвращает дату рождения пользователя.
@@ -38,26 +33,26 @@ namespace Rocket.BL.Common.Models.User
         /// <summary>
         /// Задает или возвращает пол пользователя.
         /// </summary>
-        public Gender Gender { get; set; }
+        public virtual Gender Gender { get; set; }
 
         /// <summary>
         /// Задает или возвращает сведения о том, как обращаться к пользователю.
         /// </summary>
-        public HowToCall HowToCall { get; set; }
+        public virtual HowToCall HowToCall { get; set; }
 
         /// <summary>
         /// Задает или возвращает коллекцию телефонных номеров пользователя.
         /// </summary>
-        public ICollection<PhoneNumber> PhoneNumbers { get; set; }
+        public virtual ICollection<PhoneNumber> PhoneNumbers { get; set; }
 
         /// <summary>
         /// Задает или возвращает коллекцию Email.
         /// </summary>
-        public ICollection<EmailAddress> EMailAddresses { get; set; }
+        public virtual ICollection<EmailAddress> EMailAddresses { get; set; }
 
         /// <summary>
         /// Возвращает или задает почтовый адрес пользователя.
         /// </summary>
-        public Address MailAddress { get; set; }
+        public virtual Address MailAddress { get; set; }
     }
 }

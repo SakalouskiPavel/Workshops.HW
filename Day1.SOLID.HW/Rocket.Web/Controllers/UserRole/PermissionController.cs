@@ -24,23 +24,40 @@ namespace Rocket.Web.Controllers.UserRole
         
         [HttpGet]
         [Route("{id:int:min(1)}")]
+        [SwaggerResponse(HttpStatusCode.OK, Description = "Returns Permission.", Type = typeof(Permission))]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.BadRequest)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public IHttpActionResult GetPermissionById(string id)
         {
-            var model = _permissionService.GetPermissionByYser(id);
+            if (string.IsNullOrEmpty(id))
+            {
+                return BadRequest();
+            }
+
+            var model = _permissionService.GetPermissionByUser(id);
 
             return model == null ? (IHttpActionResult)NotFound() : Ok(model);
         }
 
         [HttpGet]
         [Route("GetPermissionByRole{id:int:min(1)}")]
+        [SwaggerResponse(HttpStatusCode.OK)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.BadRequest)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public IHttpActionResult GetPermissionByRole(string user)
         {
-            var model = _permissionService.GetPermissionByYser(user);
+            var model = _permissionService.GetPermissionByUser(user);
             return model == null ? (IHttpActionResult)NotFound() : Ok(model);
         }
 
         [HttpGet]
         [Route("all")]
+        [SwaggerResponse(HttpStatusCode.OK)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.BadRequest)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public IHttpActionResult GetAllPermissions()
         {
             //_permissionService.Get(null, null, "Permission");
@@ -49,9 +66,10 @@ namespace Rocket.Web.Controllers.UserRole
         }
 
         [HttpPost]
-        [SwaggerResponseRemoveDefaults]
-        //[SwaggerResponse(HttpStatusCode.BadRequest, "Data is not valid", typeof(string))]
-        //[SwaggerResponse(HttpStatusCode.Created, "New Permission description", typeof(Permission))]
+        [SwaggerResponse(HttpStatusCode.Created)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.BadRequest)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public IHttpActionResult InsertPermission(Permission permission, string user)
         {
             if (permission == null)
@@ -59,35 +77,24 @@ namespace Rocket.Web.Controllers.UserRole
                 return BadRequest("Model cannot be empty");
             }
 
-            _permissionService.Insert(permission, user);
-            return Created($"permission/{permission.PermissionId}", permission);
+            _permissionService.InsertPermission(permission, user);
+            return Created($"permission/{permission.Id}", permission);
         }
-
-        /*
-        [HttpPut]
-        public IHttpActionResult UpdatePermission([FromBody]Permission permission, string user)
-        {
-            if (permission == null)
-            {
-                return BadRequest("Model cannot be empty");
-            }
-
-            _permissionService.Update(permission, user);
-
-            return new StatusCodeResult(HttpStatusCode.NoContent, Request);
-        }
-        */
-
+       
         [HttpDelete]
         [Route("{id:int:min(1)}")]
+        [SwaggerResponse(HttpStatusCode.Accepted)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.BadRequest)]
+        [SwaggerResponse(HttpStatusCode.InternalServerError)]
         public IHttpActionResult DeletePermissionById(Permission permission, string user)
         {
-            /*
-            if (_permissionService.GetById(permission.PermissionId.ToString()) == null)
+            
+            if (ReferenceEquals(permission, null) || string.IsNullOrEmpty(user))
             {
-                return BadRequest("The permission not exists");
+                return BadRequest("Resources.BadRequestMessage");
             }
-            */
+            
 
             _permissionService.Delete(permission, user);
             return new StatusCodeResult(HttpStatusCode.Accepted, Request);

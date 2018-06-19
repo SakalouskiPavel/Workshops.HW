@@ -24,21 +24,18 @@ namespace Rocket.Notifications
         {
             try
             {
-                //Подключаем IoC
                 var assemblies = AppDomain.CurrentDomain.GetAssemblies();
                 var kernel = BootstrapHelper.LoadNinjectKernel(assemblies);
                 MapperConfig.Initialize();
 
                 HostFactory.Run(configurator =>
                 {
-                    //конфигурируем Topshelf.Quartz
                     configurator.Service<TopshelfService>(serviceConfigurator =>
                     {
                         serviceConfigurator.ConstructUsing(name => new TopshelfService());
                         serviceConfigurator.WhenStarted((service, control) => service.Start(control));
                         serviceConfigurator.WhenStopped((service, control) => service.Stop(control));
 
-                        //Запуск процесса рассылки уведомлений 
                         NotificationsProcess(serviceConfigurator, kernel);
                     });
 
@@ -80,7 +77,6 @@ namespace Rocket.Notifications
                 IJobDetail notificationsTriggerJob = JobBuilder.Create<NotificationsJob>().Build();
                 notificationsTriggerJob.JobDataMap.Put(CommonHelper.ContainerKey, kernel);
 
-                // Запускает уведомления
                 serviceConfigurator.ScheduleQuartzJob(jobConfigurator =>
                     jobConfigurator
                         .WithJob(() => notificationsTriggerJob)

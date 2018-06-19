@@ -18,22 +18,22 @@ namespace Rocket.BL.Common.Models.ReleaseList
         /// <summary>
         /// Возвращает или задает коллекцию режиссеров, которые сняли фильм
         /// </summary>
-        public ICollection<Person> Directors { get; set; } = new Collection<Person>();
+        public virtual ICollection<Person> Directors { get; set; } = new Collection<Person>();
 
         /// <summary>
         /// Возвращает или задает коллекцию актёров, которые снялись в фильме
         /// </summary>
-        public ICollection<Person> Cast { get; set; } = new Collection<Person>();
+        public virtual ICollection<Person> Cast { get; set; } = new Collection<Person>();
 
         /// <summary>
         /// Возвращает или задает коллекцию жанров, к которым относится фильм
         /// </summary>
-        public ICollection<Genre> Genres { get; set; } = new Collection<Genre>();
+        public virtual ICollection<Genre> Genres { get; set; } = new Collection<Genre>();
 
         /// <summary>
         /// Возвращает или задает коллекцию стран, которые участвовали в создании фильма
         /// </summary>
-        public ICollection<Country> Countries { get; set; } = new Collection<Country>();
+        public virtual ICollection<Country> Countries { get; set; } = new Collection<Country>();
 
         /// <summary>
         /// Возвращает или задает продолжительность фильма

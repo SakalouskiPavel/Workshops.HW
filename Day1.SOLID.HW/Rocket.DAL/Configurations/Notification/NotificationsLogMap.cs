@@ -11,12 +11,10 @@ namespace Rocket.DAL.Configurations.Notification
                 .HasKey(p => p.Id);
 
             Property(p => p.ReleaseId)
-                .IsRequired()
-                .HasColumnName("ReleaseId");
+                .IsRequired();
 
-            Property(p => p.CreatedDateTime)
-                .IsRequired()
-                .HasColumnName("CreatedDateTime");
+            Property(p => p.CreationDate)
+                .IsRequired();
         }
     }
 }

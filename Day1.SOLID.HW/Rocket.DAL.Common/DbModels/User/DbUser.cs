@@ -24,22 +24,10 @@ namespace Rocket.DAL.Common.DbModels.User
         public string LastName { get; set; }
 
         /// <summary>
-        /// Возвращает или задает идентификатор статуса аккаунта пользователя,
-        /// к которому относится эта дополнительная информация.
-        /// </summary>
-        public int? AccountStatusId { get; set; }
-
-        /// <summary>
         /// Возвращает или задает статус аккаунта пользователя
         /// (активирован, не активирован, деактивирован, забанен и так далее).
         /// </summary>
         public virtual DbAccountStatus AccountStatus { get; set; }
-
-        /// <summary>
-        /// Возвращает или задает идентификатор уровня аккаунта пользователя,
-        /// к которому относится эта дополнительная информация.
-        /// </summary>
-        public int? AccountLevelId { get; set; }
 
         /// <summary>
         /// Возвращает или задает уровень пользователя
@@ -55,6 +43,6 @@ namespace Rocket.DAL.Common.DbModels.User
         /// <summary>
         /// Коллекция подписок пользователя
         /// </summary>
-        public ICollection<SubscribableEntity> Subscriptions { get; set; } = new Collection<SubscribableEntity>();
+        public virtual ICollection<SubscribableEntity> Subscriptions { get; set; } = new Collection<SubscribableEntity>();
     }
 }

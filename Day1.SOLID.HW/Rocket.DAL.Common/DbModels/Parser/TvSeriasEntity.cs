@@ -73,38 +73,6 @@ namespace Rocket.DAL.Common.DbModels.Parser
         /// </summary>
         public ICollection<PersonEntity> ListPerson { get; set; } = new List<PersonEntity>();
 
-        ///// <summary>
-        ///// Список актеров.
-        ///// </summary>
-        //public ICollection<PersonEntity> ListActor
-        //{
-        //    get { return ListPerson.Where(i => i.PersonTypeCode == (int)PersonType.Actor).ToList(); }
-        //}
-
-        ///// <summary>
-        ///// Список режисеров.
-        ///// </summary>
-        //public ICollection<PersonEntity> ListDirector
-        //{
-        //    get { return ListPerson.Where(i => i.PersonTypeCode == (int)PersonType.Director).ToList(); }
-        //}
-
-        ///// <summary>
-        ///// Список продюсеров.
-        ///// </summary>
-        //public ICollection<PersonEntity> ListProducer
-        //{
-        //    get { return ListPerson.Where(i => i.PersonTypeCode == (int)PersonType.Producer).ToList(); }
-        //}
-
-        ///// <summary>
-        ///// Список сценаристов.
-        ///// </summary>
-        //public ICollection<PersonEntity> ListWriter
-        //{
-        //    get { return ListPerson.Where(i => i.PersonTypeCode == (int)PersonType.Writer).ToList(); }
-        //}
-
         /// <summary>
         /// Возвращает или задает коллекцию жанров, к которым относится сериал
         /// </summary>

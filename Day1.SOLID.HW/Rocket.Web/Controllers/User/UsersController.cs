@@ -99,33 +99,6 @@ namespace Rocket.Web.Controllers.User
         [SwaggerResponse(HttpStatusCode.Created, "New model description", typeof(BL.Common.Models.User.User))]
         public async Task<IHttpActionResult> AddUser([FromBody] BL.Common.Models.User.User user)
         {
-            //if (user == null)
-            //{
-            //    return BadRequest("User can not be empty");
-            //}
-
-            //var result =  _userManagementService.AddUser(user);
-
-            //if (result.IsCompleted)
-            //{
-            //    var userId = await result;
-            //    return Ok(userId);
-            //}
-            //var dbUser = Mapper.Map<DbUser>(user);
-
-            //var dbUserProfile = new DbUserProfile()
-            //{
-            //    Email = new Collection<DbEmail>()
-            //        {
-            //            new DbEmail()
-            //            {
-            //                Name = "",
-            //            }
-            //        },
-            //};
-
-            //dbUser.DbUserProfile = dbUserProfile;
-
             await _rocketUserManagerService.CreateAsync(
                 new DbUser()
                 {
@@ -147,35 +120,6 @@ namespace Rocket.Web.Controllers.User
                 user.Password).ConfigureAwait(false);
 
             return Ok();
-
-            //var result = await _rocketUserManagerService.FindByNameAsync(user.Login).ConfigureAwait(false);
-
-            //if (result != null)
-            //{
-            //    return BadRequest("User exists");
-            //}
-
-            //var dbRole = await _rolemanager.FindByNameAsync("administrator").ConfigureAwait(false);
-            //var dbUserProfile = new DbUserProfile()
-            //{
-            //    Email = new Collection<DbEmail>()
-            //        {
-            //            new DbEmail()
-            //            {
-            //                Name = "emptyEmail",
-            //            }
-            //        },
-            //};
-
-            //var dbUser = Mapper.Map<DbUser>(user);
-            //dbUser.DbUserProfile = dbUserProfile;
-
-            //await _rocketUserManagerService.CreateAsync(dbUser).ConfigureAwait(false);
-
-            //await _rocketUserManagerService
-            //    .AddToRoleAsync(dbUser.Id, "user").ConfigureAwait(false);
-
-            //return Ok();
         }
 
         /// <summary>
@@ -229,11 +173,9 @@ namespace Rocket.Web.Controllers.User
                 return BadRequest("User invalid");
             }
 
-            _userManagementService.DeleteUser(user.Id);
+            _userManagementService.DeleteUser(user.Id.ToString());
 
             return Ok($"User with id = {user.Id} successfully deleted");
-
-            throw new NotImplementedException();
         }
     }
 }

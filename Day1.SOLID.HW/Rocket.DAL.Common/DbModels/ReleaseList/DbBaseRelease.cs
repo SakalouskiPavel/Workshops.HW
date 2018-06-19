@@ -6,13 +6,8 @@ namespace Rocket.DAL.Common.DbModels.ReleaseList
     /// Представляет базовый тип для моделей хранения релизов
     /// (фильмов, серий, музыкальных альбомов)
     /// </summary>
-    public abstract class DbBaseRelease
+    public abstract class DbBaseRelease : Entity
     {
-        /// <summary>
-        /// Возвращает или задает уникальный идентификатор релиза
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Возвращает или задает дату выхода релиза
         /// </summary>

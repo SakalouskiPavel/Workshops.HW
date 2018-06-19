@@ -1,12 +1,7 @@
 ﻿namespace Rocket.BL.Common.Models.PersonalArea
 {
-    public class Genre
+    public class Genre : BllEntity
     {
-        /// <summary>
-        /// Id жанра.
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Имя жанра.
         /// </summary>

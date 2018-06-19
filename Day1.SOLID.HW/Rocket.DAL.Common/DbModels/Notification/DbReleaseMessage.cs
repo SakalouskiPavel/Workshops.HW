@@ -8,13 +8,8 @@ namespace Rocket.DAL.Common.DbModels.Notification
     /// <summary>
     /// Описывает модель хранения данных о сообщении о релизе
     /// </summary>
-    public class DbReleaseMessage
+    public class DbReleaseMessage : Entity
     {
-        /// <summary>
-        /// Возвращает или задает идентификационный номер сообщения
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Возвращает или задает идентификационный номер релиза
         /// из модели <see cref="DbBaseRelease"/>
@@ -31,16 +26,11 @@ namespace Rocket.DAL.Common.DbModels.Notification
         /// Возвращает или задает коллекцию объектов, содержащих 
         /// сводные данные о получателе и сообщении о релизе
         /// </summary>
-        public ICollection<DbReceiversJoinReleases> ReceiversJoinReleases { get; set; }
+        public virtual ICollection<DbReceiver> Receivers { get; set; }
         
         /// <summary>
         /// Возвращает или задает дату выхода релиза
         /// </summary>
         public DateTime ReleaseDate { get; set; }
-
-        /// <summary>
-        /// Возвращает или задает время создания сообщения
-        /// </summary>
-        public DateTime CreationTime { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace Rocket.BL.Common.Models.Pagination
         /// <summary>
         /// Возвращает или задает коллекцию элементов страницы
         /// </summary>
-        public IEnumerable<T> PageItems { get; set; }
+        public virtual IEnumerable<T> PageItems { get; set; }
 
         /// <summary>
         /// Возвращает или задает количество всех страниц

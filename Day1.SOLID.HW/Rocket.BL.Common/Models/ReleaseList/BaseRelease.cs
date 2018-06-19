@@ -6,13 +6,8 @@ namespace Rocket.BL.Common.Models.ReleaseList
     /// Представляет базовый тип для доменных моделей релизов
     /// (фильмов, серий, музыкальных альбомов)
     /// </summary>
-    public abstract class BaseRelease
+    public abstract class BaseRelease : BllEntity
     {
-        /// <summary>
-        /// Возвращает или задает уникальный идентификатор релиза
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Возвращает или задает дату выхода релиза
         /// </summary>

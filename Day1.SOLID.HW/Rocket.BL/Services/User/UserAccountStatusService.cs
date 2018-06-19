@@ -32,7 +32,6 @@ namespace Rocket.BL.Services.User
             var isUserExist = _unitOfWork.UserRepository.Get(u => u.Id == id)
                 .FirstOrDefault() != null;
 
-            // Проверка на наличие пользователя в хранилище.
             if (!isUserExist)
             {
                 return null;
@@ -54,7 +53,6 @@ namespace Rocket.BL.Services.User
             var isUserExist = _unitOfWork.UserRepository.Get(u => u.Id == id)
                                   .FirstOrDefault() != null;
 
-            // Проверка на наличие пользователя в хранилище.
             if (!isUserExist)
             {
                 return;

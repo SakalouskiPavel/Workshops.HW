@@ -18,13 +18,12 @@ namespace Rocket.DAL.Configurations.Notification
 
             Property(x => x.ReleaseType).IsRequired();
 
-            HasMany(x => x.ReceiversJoinReleases)
-                .WithRequired(x => x.ReleaseMessage)
-                .HasForeignKey(x => x.ReleaseMessageId);
+            HasMany(x => x.Receivers)
+                .WithMany(x => x.Releases);
 
             Property(x => x.ReleaseDate).IsRequired();
 
-            Property(x => x.CreationTime).IsRequired();
+            Property(x => x.CreationDate).IsRequired();
         }
     }
 }

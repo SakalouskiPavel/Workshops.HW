@@ -16,16 +16,13 @@ namespace Rocket.DAL.Configurations.Notification
                 .HasMaxLength(50);
 
             Property(p => p.NotifyIsSwitchOn)
-                .IsRequired()
-                .HasColumnName("NotifyIsSwitchOn");
+                .IsRequired();
 
             Property(p => p.NotifyPeriodInMinutes)
-                .IsRequired()
-                .HasColumnName("NotifyPeriodInMinutes");
+                .IsRequired();
 
             Property(p => p.PushUrl)
                 .IsRequired()
-                .HasColumnName("PushUrl")
                 .HasMaxLength(100);
         }
     }

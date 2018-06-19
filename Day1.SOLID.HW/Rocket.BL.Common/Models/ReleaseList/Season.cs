@@ -6,13 +6,8 @@ namespace Rocket.BL.Common.Models.ReleaseList
     /// <summary>
     /// Представляет информацию о конкретном сезоне сериала
     /// </summary>
-    public class Season
+    public class Season : BllEntity
     {
-        /// <summary>
-        /// Возвращает или задает уникальный идентификатор сезона
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Возвращает или задает порядковый номер сезона
         /// </summary>
@@ -27,6 +22,6 @@ namespace Rocket.BL.Common.Models.ReleaseList
         /// <summary>
         /// Возвращает или задает коллекцию серий сезона
         /// </summary>
-        public ICollection<Episode> ListEpisode { get; set; } = new Collection<Episode>();
+        public virtual ICollection<Episode> ListEpisode { get; set; } = new Collection<Episode>();
     }
 }

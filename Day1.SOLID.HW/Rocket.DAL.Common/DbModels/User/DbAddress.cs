@@ -5,14 +5,8 @@ namespace Rocket.DAL.Common.DbModels.User
     /// <summary>
     /// Представляет модель хранениея данных адреса для сведений о пользователе.
     /// </summary>
-    public class DbAddress
+    public class DbAddress : Entity
     {
-        /// <summary>
-        /// Задает или возвращает уникальный идентификационный адреса.
-        /// </summary>
-        /// <value>Уникальный идентификатор адреса пользователя.</value>>
-        public int Id { get; set; }
-
         /// <summary>
         /// Задает или возвращает почтовый индекс.
         /// </summary>

@@ -28,7 +28,7 @@ namespace Rocket.BL.Tests.User.FakeData
         {
             EmailAddressFaker = new Faker<DbEmailAddress>()
                 .RuleFor(ea => ea.Id, f => f.IndexFaker)
-                .RuleFor(ea => ea.Address, f =>f.Internet.Email());
+                .RuleFor(ea => ea.Address, f => f.Internet.Email());
 
             EmailAddresses = EmailAddressFaker.Generate(emailAddressCount);
         }

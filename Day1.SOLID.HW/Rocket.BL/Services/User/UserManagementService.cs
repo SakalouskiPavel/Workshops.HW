@@ -84,7 +84,6 @@ namespace Rocket.BL.Services.User
         /// <returns>Идентификатор пользователя.</returns>
         public async Task<IdentityResult> AddUser(Common.Models.User.User user)
         {
-            //user.AccountLevel = _userAccountLevelService.GetUserAccountLevel(1);
             var dbUser = Mapper.Map<DbUser>(user);
             dbUser.Id = Guid.NewGuid().ToString();
 
@@ -111,8 +110,6 @@ namespace Rocket.BL.Services.User
                 .ConfigureAwait(false);
 
             return result;
-
-            throw new InvalidOperationException(result.Errors.Aggregate((a, b) => $"{a} {b}"));
         }
 
         /// <summary>

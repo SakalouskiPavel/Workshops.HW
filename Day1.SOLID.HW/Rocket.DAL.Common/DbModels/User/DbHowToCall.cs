@@ -5,13 +5,8 @@ namespace Rocket.DAL.Common.DbModels.User
     /// <summary>
     /// Представляет модель хранения сведений о том, как обращаться к пользователю.
     /// </summary>
-    public class DbHowToCall
+    public class DbHowToCall : Entity
     {
-        /// <summary>
-        /// Возвращает или задает уникальный идентификатор сведений о том, как обращаться к пользователю.
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Возвращает или задает обращение к пользователю.
         /// </summary>
@@ -21,6 +16,6 @@ namespace Rocket.DAL.Common.DbModels.User
         /// Задает или возвращает коллекцию дополнительной информации пользователя,
         /// к которой относится это сведение о том, как обращаться к пользователю.
         /// </summary>
-        public ICollection<DbUserDetail> DbUserDetails { get; set; }
+        public virtual ICollection<DbUserDetail> DbUserDetails { get; set; }
     }
 }

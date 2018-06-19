@@ -104,7 +104,7 @@ namespace Rocket.BL.Services.Notification
             try
             {
                 var user = _unitOfWork.UserAuthorisedRepository.Get(
-                x => x.DbUser_Id == id, null, "DbUser").First();
+                x => x.DbUserId == id, null, "DbUser").First();
                 var billing = Mapper.Map<BillingNotification>(user);
                 billing.Sum = sum;
                 billing.Currency = currency;

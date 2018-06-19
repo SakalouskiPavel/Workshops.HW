@@ -16,6 +16,7 @@ namespace Rocket.DAL.Repositories
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
         private readonly RocketContext _rocketContext;
+
         private readonly DbSet<TEntity> _dbSet;
 
         /// <summary>
@@ -24,8 +25,8 @@ namespace Rocket.DAL.Repositories
         /// <param name="rocketContext">Экземпляр контекста базы данных.</param>
         public BaseRepository(RocketContext rocketContext)
         {
-            _rocketContext = rocketContext;
-            _dbSet = _rocketContext.Set<TEntity>();
+            _rocketContext = rocketContext ?? throw new NullReferenceException();
+            _dbSet = _rocketContext.Set<TEntity>() ?? throw new NullReferenceException();
         }
 
         /// <summary>

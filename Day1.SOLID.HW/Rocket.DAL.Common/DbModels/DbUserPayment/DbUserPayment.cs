@@ -6,13 +6,8 @@ namespace Rocket.DAL.Common.DbModels
     /// <summary>
     /// Представляет модель хранения данных о платеже
     /// </summary>
-    public class DbUserPayment
+    public class DbUserPayment : Entity
     {
-        /// <summary>
-        /// Возвращает или задает уникальный идентификатор платежа
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Возвращает или задает id пользователя
         /// </summary>

@@ -41,17 +41,17 @@ namespace Rocket.BL.Common.Models.ReleaseList
         /// <summary>
         /// Возвращает или задает коллекцию жанров, к которым относится музыкальный релиз
         /// </summary>
-        public ICollection<MusicGenre> Genres { get; set; } = new Collection<MusicGenre>();
+        public virtual ICollection<MusicGenre> Genres { get; set; } = new Collection<MusicGenre>();
 
         /// <summary>
         /// Возвращает или задает музыкальные треки которые относятся к релизу
         /// </summary>
-        public ICollection<MusicTrack> MusicTracks { get; set; } = new Collection<MusicTrack>();
+        public virtual ICollection<MusicTrack> MusicTracks { get; set; } = new Collection<MusicTrack>();
 
         /// <summary>
         /// Возвращает или задает исполнителей музыкального релиза
         /// </summary>
-        public ICollection<Musician> Musicians { get; set; } = new Collection<Musician>();
+        public virtual ICollection<Musician> Musicians { get; set; } = new Collection<Musician>();
 
         public bool IsUserSubscribed { get; set; }
     }

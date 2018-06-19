@@ -12,7 +12,7 @@ namespace Rocket.BL.Common.Mappings.PersonalAreaMappings
         public UserProfileMapping()
         {
             CreateMap<UserProfile, DbUserProfile>()
-                .ForMember(dbu => dbu.DbUser_Id, u => u.MapFrom(src => src.Id))
+                .ForMember(dbu => dbu.DbUserId, u => u.MapFrom(src => src.Id))
                 .ForPath(dbu => dbu.DbUser.FirstName, u => u.MapFrom(src => src.FirstName))
                 .ForPath(dbu => dbu.DbUser.LastName, u => u.MapFrom(src => src.LastName))
                 .ForMember(dbu => dbu.Avatar, u => u.MapFrom(src => src.Avatar))

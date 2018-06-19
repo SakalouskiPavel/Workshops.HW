@@ -8,6 +8,6 @@ namespace Rocket.BL.Common.Models.ReleaseList
 
         public string Name { get; set; }
 
-        public ICollection<Genre> ListGenre { get; set; }
+        public virtual ICollection<Genre> ListGenre { get; set; }
     }
 }

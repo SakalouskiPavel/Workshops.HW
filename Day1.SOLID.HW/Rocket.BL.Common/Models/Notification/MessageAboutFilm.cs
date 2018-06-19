@@ -10,12 +10,12 @@ namespace Rocket.BL.Common.Models.Notification
         /// <summary>
         /// Возвращает или задает получателя сообщения
         /// </summary>
-        public Receiver Receiver { get; set; }
+        public  virtual Receiver Receiver { get; set; }
 
         /// <summary>
         /// Возвращает или задает релиз фильма для целей нотификации 
         /// </summary>
-        public FilmForNotification Film { get; set; }
+        public virtual FilmForNotification Film { get; set; }
 
         /// <summary>
         /// Возвращает или задает время создания сообщения

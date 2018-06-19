@@ -6,13 +6,8 @@ namespace Rocket.BL.Common.Models.User
     /// <summary>
     /// Представляет информацию о пользователе.
     /// </summary>
-    public class User
+    public class User : BllEntity
     {
-        /// <summary>
-        /// Возвращает или задает уникальный идентификатор пользователя.
-        /// </summary>
-        public string Id { get; set; }
-
         /// <summary>
         /// Имя пользователя.
         /// </summary>
@@ -37,22 +32,22 @@ namespace Rocket.BL.Common.Models.User
         /// Возвращает или задает статус аккаунта
         /// (активирован, не активирован, деактивирован, забанен и так далее).
         /// </summary>
-        public AccountStatus AccountStatus { get; set; }
+        public virtual AccountStatus AccountStatus { get; set; }
 
         /// <summary>
         /// Возвращает или задает уровень пользователя
         /// (пока что это - обычный и премиум пользователь).
         /// </summary>
-        public AccountLevel AccountLevel { get; set; }
+        public virtual AccountLevel AccountLevel { get; set; }
 
         /// <summary>
         /// Возвращает или задает коллекцию ролей пользователя.
         /// </summary>
-        public ICollection<Role> Roles { get; set; }
+        public virtual ICollection<Role> Roles { get; set; }
 
         /// <summary>
         /// Детальная информация пользователя.
         /// </summary>
-        public UserDetail UserDetail { get; set; }
+        public virtual UserDetail UserDetail { get; set; }
     }
 }

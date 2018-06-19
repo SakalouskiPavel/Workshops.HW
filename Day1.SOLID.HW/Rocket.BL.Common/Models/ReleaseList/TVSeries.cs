@@ -68,16 +68,16 @@ namespace Rocket.BL.Common.Models.ReleaseList
         /// <summary>
         /// Возвращает или задает коллекцию актёров, которые снялись в сериале
         /// </summary>
-        public ICollection<Person> ListPerson { get; set; } = new Collection<Person>();
+        public virtual ICollection<Person> ListPerson { get; set; } = new Collection<Person>();
 
         /// <summary>
         /// Возвращает или задает коллекцию жанров, к которым относится сериал
         /// </summary>
-        public ICollection<Genre> Genres { get; set; } = new Collection<Genre>();
-        
+        public virtual ICollection<Genre> Genres { get; set; } = new Collection<Genre>();
+
         /// <summary>
         /// Возвращает или задает коллекцию сезонов сериала
         /// </summary>
-        public ICollection<Season> ListSeasons { get; set; } = new Collection<Season>();
+        public virtual ICollection<Season> ListSeasons { get; set; } = new Collection<Season>();
     }
 }

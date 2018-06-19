@@ -11,15 +11,15 @@ namespace Rocket.BL.Common.Services.User
         /// <summary>
         /// Получает уровень аккаунта пользователя с заданным идентификатором.
         /// </summary>
-        /// <param name="id">Идентификатор пользователя.</param>
+        /// <param name="userId">Идентификатор пользователя.</param>
         /// <returns>Уровень аккаунта пользователя.</returns>
-        AccountLevel GetUserAccountLevel(int id);
+        AccountLevel GetUserAccountLevel(int userId);
 
         /// <summary>
         /// Задает значение уровня аккаунта пользователя с заданным идентификатором.
         /// </summary>
-        /// <param name="id">Идентификатор пользователя.</param>
+        /// <param name="userId">Идентификатор пользователя.</param>
         /// <param name="accountLevel">Задаваемый уровень аккаунта.</param>
-        void SetUserAccountLevel(int id, AccountLevel accountLevel);
+        void SetUserAccountLevel(int userId, AccountLevel accountLevel);
     }
 }

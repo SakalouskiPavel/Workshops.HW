@@ -21,11 +21,11 @@ namespace Rocket.DAL.Configurations.User
 
             HasOptional(ud => ud.Sitizenship)
                 .WithMany(s => s.DbUserDetails)
-                .HasForeignKey(ud => ud.SitizenshipId);
+                .HasForeignKey(ud => ud.Sitizenship.Id);
 
             HasOptional(ud => ud.Language)
                 .WithMany(l => l.DbUserDetails)
-                .HasForeignKey(ud => ud.LanguageId);
+                .HasForeignKey(ud => ud.Language.Id);
 
             Property(ud => ud.DateOfBirth)
                 .IsOptional()
@@ -33,11 +33,11 @@ namespace Rocket.DAL.Configurations.User
 
             HasOptional(ud => ud.Gender)
                 .WithMany(g => g.DbUserDetails)
-                .HasForeignKey(ud => ud.GenderId);
+                .HasForeignKey(ud => ud.Gender.Id);
 
             HasOptional(ud => ud.HowToCall)
                 .WithMany(h => h.DbUserDetails)
-                .HasForeignKey(ud => ud.HowToCallId);
+                .HasForeignKey(ud => ud.HowToCall.Id);
 
             HasMany(ud => ud.PhoneNumbers)
                 .WithMany(pn => pn.DbUserDetails)

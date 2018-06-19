@@ -32,7 +32,7 @@ namespace Rocket.BL.Services.PersonalArea
         /// <param name="genre">Имя жанра для добавления</param>
         public void AddMusicGenre(string id, string genre)
         {
-            var modelUser = _unitOfWork.UserAuthorisedRepository.Get(f => f.DbUser_Id == id).FirstOrDefault()
+            var modelUser = _unitOfWork.UserAuthorisedRepository.Get(f => f.DbUserId == id).FirstOrDefault()
                ?? throw new ValidationException(Resources.EmptyModel);
             if (_unitOfWork.MusicGenreRepository.Get(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault() == null)
             {
@@ -56,7 +56,7 @@ namespace Rocket.BL.Services.PersonalArea
         /// <param name="genre">Имя жанра для добавления</param>
         public void AddTvGenre(string id, string genre)
         {
-            var modelUser = _unitOfWork.UserAuthorisedRepository.Get(f => f.DbUser_Id == id).FirstOrDefault()
+            var modelUser = _unitOfWork.UserAuthorisedRepository.Get(f => f.DbUserId == id).FirstOrDefault()
                 ?? throw new ValidationException(Resources.EmptyModel);
             if (_unitOfWork.GenreRepository.Get(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault() == null)
             {
@@ -80,7 +80,7 @@ namespace Rocket.BL.Services.PersonalArea
         /// <param name="genre">Имя жанра для удаления</param>
         public void DeleteMusicGenre(string id, string genre)
         {
-            var modelUser = _unitOfWork.UserAuthorisedRepository.Get(f => f.DbUser_Id == id).FirstOrDefault() 
+            var modelUser = _unitOfWork.UserAuthorisedRepository.Get(f => f.DbUserId == id).FirstOrDefault() 
                 ?? throw new ValidationException(Resources.EmptyModel);
             if (modelUser.MusicGenres.Where(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault() != null)
             {
@@ -102,7 +102,7 @@ namespace Rocket.BL.Services.PersonalArea
         /// <param name="genre">Имя жанра для удаления</param>
         public void DeleteTvGenre(string id, string genre)
         {
-            var modelUser = _unitOfWork.UserAuthorisedRepository.Get(f => f.DbUser_Id == id).FirstOrDefault()
+            var modelUser = _unitOfWork.UserAuthorisedRepository.Get(f => f.DbUserId == id).FirstOrDefault()
                 ?? throw new ValidationException(Resources.EmptyModel);
             if (modelUser.Genres.Where(f => f.Name.ToUpper() == genre.ToUpper()).FirstOrDefault() != null)
             {

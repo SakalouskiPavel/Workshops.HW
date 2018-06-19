@@ -3,13 +3,8 @@
     /// <summary>
     /// Представляет модель данных о платеже
     /// </summary>
-    public class UserPayment
+    public class UserPayment : BllEntity
     {
-        /// <summary>
-        /// Возвращает или задает уникальный идентификатор платежа
-        /// </summary>
-        public string Id { get; set; }
-
         /// <summary>
         /// Возвращает или задает пользователя
         /// </summary>

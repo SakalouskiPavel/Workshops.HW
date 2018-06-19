@@ -138,11 +138,6 @@ namespace Rocket.DAL.Context
         public DbSet<DbGuestBillingMessage> GuestBillingMessages { get; set; }
 
         /// <summary>
-        /// DbSet сводных данных о пользователе и релизе
-        /// </summary>
-        public DbSet<DbReceiversJoinReleases> ReceiversJoinReleaseses { get; set; }
-
-        /// <summary>
         /// DbSet сообщения о релизе
         /// </summary>
         public DbSet<DbReleaseMessage> ReleaseMessages { get; set; }
@@ -204,10 +199,9 @@ namespace Rocket.DAL.Context
             modelBuilder.Configurations.Add(new NotificationsSettingsEntityMap());
 
             modelBuilder.Configurations.Add(new ReceiverConfiguration());
-            modelBuilder.Configurations.Add(new CustomConfiguration());
+            modelBuilder.Configurations.Add(new CustomMessageConfiguration());
             modelBuilder.Configurations.Add(new EmailTemplateConfiguration());
             modelBuilder.Configurations.Add(new GuestBillingConfiguration());
-            modelBuilder.Configurations.Add(new ReceiversJoinReleasesConfiguration());
             modelBuilder.Configurations.Add(new ReleaseMessageConfiguration());
             modelBuilder.Configurations.Add(new UserBillingConfiguration());
             modelBuilder.Configurations.Add(new NotificationsLogMap());

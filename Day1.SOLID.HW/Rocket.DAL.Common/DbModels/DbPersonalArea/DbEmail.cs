@@ -3,13 +3,8 @@
     /// <summary>
     /// Модель хранения данных e-mail.
     /// </summary>
-    public class DbEmail
+    public class DbEmail : Entity
     {
-        /// <summary>
-        /// Id email-адреса.
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Имя Email-адреса.
         /// </summary>

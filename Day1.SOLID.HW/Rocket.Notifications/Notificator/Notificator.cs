@@ -95,7 +95,7 @@ namespace Rocket.Notifications.Notificator
                 var episodes = GetTvSeriesEpisodesReleases(currDateTime);
 
                 var taskList = new List<Task> { _mailNotificationService.NotifyAboutReleaseAsync(episodes) };
-                
+
                 var pushNotifications = CastTvSeriasToPushModel(episodes);
                 if (pushNotifications.Any())
                 {
@@ -123,7 +123,6 @@ namespace Rocket.Notifications.Notificator
                 .Where(e => e.ReleaseDateRu > DbFunctions.AddDays(currDateTime, -3) && e.ReleaseDateRu < currDateTime)
                 .ToList();
 
-            //исключить релизы, которые, возможно, уже были обработаны ранее
             episodes = episodes
                 .Where(m => _unitOfWork.NotificationsLogRepository.Queryable()
                     .All(n => m.Id != n.ReleaseId)).ToList();
@@ -134,7 +133,6 @@ namespace Rocket.Notifications.Notificator
                     .FirstOrDefault(tv => tv.Id == episode.Season.TvSeriesId))
                 .ToList();
 
-            //добавляем в подписчики тех, кто подписан на актеров
             foreach (var tvSeria in tvSerias)
             {
                 foreach (var personEntity in tvSeria.ListPerson)
@@ -170,9 +168,8 @@ namespace Rocket.Notifications.Notificator
                 .Include(m => m.Musicians)
                 .Where(m => m.ReleaseDate > DbFunctions.AddDays(currDateTime, -3) && m.ReleaseDate < currDateTime)
                 .Where(m => m.Users.Any() || m.Musicians.Select(a => a.Users.Any()).Any())
-                .ToList();  
+                .ToList();
 
-            //исключить релизы, которые, возможно, уже были обработаны ранее
             musicReleases = musicReleases
                 .Where(m => _unitOfWork.NotificationsLogRepository.Queryable()
                     .All(n => m.Id != n.ReleaseId)).ToList();
@@ -218,7 +215,7 @@ namespace Rocket.Notifications.Notificator
                                      select new PushNotificationModel
                                      {
                                          Message = msg,
-                                         Users = episode.Users.Select(u => u.Id.ToString()).ToArray() 
+                                         Users = episode.Users.Select(u => u.Id.ToString()).ToArray()
                                      }).ToList();
 
             return pushNotifications;
@@ -237,7 +234,7 @@ namespace Rocket.Notifications.Notificator
                                      select new PushNotificationModel
                                      {
                                          Message = msg,
-                                         Users = musicRelease.Users.Select(u => u.Id.ToString()).ToArray() 
+                                         Users = musicRelease.Users.Select(u => u.Id.ToString()).ToArray()
                                      }).ToList();
 
             return pushNotifications;
@@ -254,7 +251,7 @@ namespace Rocket.Notifications.Notificator
         {
             var content = new StringContent(pushNotifications.ToString(), Encoding.UTF8, Resources.JsonMIMEType);
             var response = await _httpClient.PostAsync(settings.PushUrl, content);
-            return response.StatusCode == System.Net.HttpStatusCode.NoContent 
+            return response.StatusCode == System.Net.HttpStatusCode.NoContent
                 || response.StatusCode == System.Net.HttpStatusCode.OK;
         }
 
@@ -265,10 +262,10 @@ namespace Rocket.Notifications.Notificator
         private void SaveNotificationsLog(IEnumerable<SubscribableEntity> subscribables)
         {
             var notificationLog = subscribables.Select(subscribable => new NotificationsLogEntity
-                {
-                    ReleaseId = subscribable.Id,
-                    CreatedDateTime = DateTime.Now
-                }).ToList();
+            {
+                ReleaseId = subscribable.Id,
+                CreationDate = DateTime.Now
+            }).ToList();
 
             _unitOfWork.NotificationsLogRepository.InsertRange(notificationLog);
             _unitOfWork.SaveChanges();

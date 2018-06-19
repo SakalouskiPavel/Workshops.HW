@@ -5,13 +5,8 @@ namespace Rocket.BL.Common.Models.ReleaseList
     /// <summary>
     /// Представляет информацию о конкретной серии сериала
     /// </summary>
-    public class Episode
+    public class Episode : BllEntity
     {
-        /// <summary>
-        /// Возвращает или задает уникальный идентификатор серии
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Возвращает или задает дату выхода серии (рус)
         /// </summary>

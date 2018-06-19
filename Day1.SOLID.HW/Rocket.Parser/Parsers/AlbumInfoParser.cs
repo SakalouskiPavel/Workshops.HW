@@ -44,7 +44,6 @@ namespace Rocket.Parser.Parsers
         {
             try
             {
-                // получаем настройки парсера
                 var resource = _unitOfWork.ResourceRepository
                     .Queryable().First(r => r.Name.Equals(Resources.AlbumInfoSettings));
 
@@ -52,7 +51,6 @@ namespace Rocket.Parser.Parsers
                     Where(ps => ps.ResourceId == resource.Id)
                     .ToList();
 
-                // по каждой настройке выполняем парсинг
                 foreach (var setting in settings)
                 {
                     var resourceItemsBc = new BlockingCollection<ResourceItemEntity>();
@@ -89,16 +87,14 @@ namespace Rocket.Parser.Parsers
         /// <param name="releasesBc">Потокобезопасная коллекция релизов сайта</param>
         /// <returns>Task</returns>
         private async Task ParseAlbumInfo(
-            ParserSettingsEntity setting, string resourceLink, int index, 
+            ParserSettingsEntity setting, string resourceLink, int index,
             BlockingCollection<ResourceItemEntity> resourceItemsBc, BlockingCollection<AlbumInfoRelease> releasesBc)
         {
             var linksPageUrl = $"{setting.BaseUrl}{setting.Prefix}{index}";
 
-            //загружаем страницу со ссылками на релизы
             var linksPageHtmlDoc = await _loadHtmlService.GetHtmlDocumentByUrlAsync(linksPageUrl).
                 ConfigureAwait(false);
 
-            //получаем ссылки на страницы релизов
             var releaseLinkList = ParseAlbumlist(linksPageHtmlDoc);
 
             await Task.WhenAll(releaseLinkList.Select(releaseLink => ParseReleasInfo(setting, resourceLink,
@@ -114,7 +110,7 @@ namespace Rocket.Parser.Parsers
         /// <param name="resourceItemsBc">Потокобезопасная коллекция элементов ресурса</param>
         /// <param name="releasesBc">Потокобезопасная коллекция релизов сайта</param>
         /// <returns>Task</returns>
-        private async Task ParseReleasInfo(ParserSettingsEntity setting, string resourceLink, string releaseLink, 
+        private async Task ParseReleasInfo(ParserSettingsEntity setting, string resourceLink, string releaseLink,
             BlockingCollection<ResourceItemEntity> resourceItemsBc, BlockingCollection<AlbumInfoRelease> releasesBc)
         {
             var releaseUrl = resourceLink + releaseLink;
@@ -134,8 +130,7 @@ namespace Rocket.Parser.Parsers
             if (release != null)
             {
                 release.ResourceInternalId = resourceInternalId;
-                
-                //загружаем обложку релиза
+
                 await LoadAndSaveReleaseCover(release, resourceLink, setting.ResourceId).ConfigureAwait(false);
 
                 releasesBc.Add(release);
@@ -157,7 +152,6 @@ namespace Rocket.Parser.Parsers
 
             foreach (var resourceItem in resourceItems)
             {
-                //находим соответствующий релиз
                 var release = releasesBc.FirstOrDefault(r => r.ResourceInternalId == resourceItem.ResourceInternalId);
 
                 if (release != null)
@@ -185,7 +179,6 @@ namespace Rocket.Parser.Parsers
         /// <returns>Id сущности музыка</returns>
         private int SaveRelease(DbMusic music)
         {
-            //проверяем существует ли релиз
             var musicEntity = _unitOfWork.MusicRepository.Queryable().
                 Include(a => a.Genres).
                 Include(m => m.Musicians).
@@ -193,7 +186,6 @@ namespace Rocket.Parser.Parsers
 
             if (musicEntity != null)
             {
-                //обновляем релиз
                 musicEntity.Genres = music.Genres;
                 musicEntity.Musicians = music.Musicians;
                 musicEntity.ReleaseDate = music.ReleaseDate;
@@ -368,10 +360,10 @@ namespace Rocket.Parser.Parsers
             var list = new List<string>();
 
             // парсинг таблицы содержащей релизы(столбцы таблицы)
-            for (var i = 1; i < 4; i++) 
+            for (var i = 1; i < 4; i++)
             {
                 // строки таблицы
-                for (var j = 1; j < 5; j++) 
+                for (var j = 1; j < 5; j++)
                 {
                     var item = document.QuerySelector(
                         string.Format(Resources.AlbumInfoReleaseLinkSelector, i, j));

@@ -1,12 +1,7 @@
 ﻿namespace Rocket.BL.Common.Models.PersonalArea
 {
-    public class Email
+    public class Email : BllEntity
     {
-        /// <summary>
-        /// Id e-mail адреса.
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Имя e-mail адреса.
         /// </summary>

@@ -11,7 +11,7 @@ namespace Rocket.BL.Common.Models.Notification
         /// <summary>
         /// Возвращает или задает коллекцию получателей сообщений
         /// </summary>
-        public ICollection<Receiver> Receivers { get; set; }
+        public virtual ICollection<Receiver> Receivers { get; set; }
 
         /// <summary>
         /// Возвращает или задает название сериала

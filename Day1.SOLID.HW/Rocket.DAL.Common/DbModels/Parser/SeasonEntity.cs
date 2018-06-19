@@ -5,13 +5,8 @@ namespace Rocket.DAL.Common.DbModels.Parser
     /// <summary>
     /// Сущность модели сезона сериала.
     /// </summary>
-    public class SeasonEntity
+    public class SeasonEntity : Entity
     {
-        /// <summary>
-        /// Уникальный идентификатор.
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Номер сезона.
         /// </summary>

@@ -31,7 +31,7 @@ namespace Rocket.BL.Services.PersonalArea
         public UserProfile GetUserData(string id)
         {
             return Mapper.Map<UserProfile>(_unitOfWork.UserAuthorisedRepository.Get(
-                    f => f.DbUser_Id == id,
+                    f => f.DbUserId == id,
                     includeProperties: $"{nameof(DbUser)}")
                     ?.FirstOrDefault());
         }

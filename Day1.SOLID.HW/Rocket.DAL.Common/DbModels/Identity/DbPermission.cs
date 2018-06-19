@@ -2,14 +2,8 @@
 
 namespace Rocket.DAL.Common.DbModels.Identity
 {
-    public class DbPermission
+    public class DbPermission : Entity
     {
-        /// <summary>
-        /// Уникальный идентификатор значения "право доступа" 
-        /// (либо функциональная возможность)
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Описание  функц. возможности, соответствующее идентификатору 
         /// </summary>

@@ -7,14 +7,8 @@ namespace Rocket.DAL.Common.DbModels.Notification
     /// Описывает модель хранения данных о пользователе,
     /// являющемся получателем сообщения
     /// </summary>
-    public class DbReceiver
+    public class DbReceiver : Entity
     {
-        /// <summary>
-        /// Возвращает или задает идентификационный номер получателя
-        /// согласно модели <see cref="DbUserProfile"/>
-        /// </summary>
-        public int UserId { get; set; }
-        
         /// <summary>
         /// Возвращает или задает флаг подписки на email нотификацию
         /// </summary>
@@ -29,18 +23,18 @@ namespace Rocket.DAL.Common.DbModels.Notification
         /// Возвращает или задает коллекцию сообщений о платежах,
         /// получателем которых является пользователь
         /// </summary>
-        public ICollection<DbUserBillingMessage> UserBillingMessages { get; set; }
+        public virtual ICollection<DbUserBillingMessage> UserBillingMessages { get; set; }
 
         /// <summary>
         /// Возвращает или задает коллекцию сообщений произвольного содержания,
         /// получателем которых является пользователь
         /// </summary>
-        public ICollection<DbCustomMessage> CustomMessages { get; set; }
+        public virtual ICollection<DbCustomMessage> CustomMessages { get; set; }
 
         /// <summary>
         /// Возвращает или задает коллекцию объектов, содержащих 
         /// сводные данные о получателе и сообщении о релизе
         /// </summary>
-        public ICollection<DbReceiversJoinReleases> ReceiversJoinReleases { get; set; }
+        public virtual ICollection<DbReleaseMessage> Releases { get; set; }
     }
 }

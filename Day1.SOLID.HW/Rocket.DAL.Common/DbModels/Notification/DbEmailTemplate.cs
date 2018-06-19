@@ -3,13 +3,8 @@
     /// <summary>
     /// Описывает модель хранения данных о шаблоне email сообщения
     /// </summary>
-    public class DbEmailTemplate
+    public class DbEmailTemplate : Entity
     {
-        /// <summary>
-        /// Возвращает или задает идентификационный номер шаблона
-        /// </summary>
-        public int Id { get; set; }
-
         /// <summary>
         /// Возвращает или задает наименование шаблона
         /// </summary>
